@@ -1,10 +1,7 @@
-import HomeSectionComponent from '@/components/HomeSectionComponent'
-import React from 'react'
+import HomeSectionComponent from "@/components/HomeSectionComponent";
 
-const page = () => {
-  return (
-    <HomeSectionComponent />
-  )
+export const revalidate = 60; // Rebuild the page every 60 seconds
+
+export default function HomePage() {
+  return <HomeSectionComponent />;
 }
-
-export default page
