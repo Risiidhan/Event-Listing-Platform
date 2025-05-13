@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-const SearchInputComponent = () => {
+const SearchInputComponent = ({formData, setFormData} : any) => {
     return (
         <div className="flex items-center bg-white/40 backdrop-blur-md rounded-lg p-4 justify-between shadow-md w-full max-w-5xl mx-auto gap-6 flex-wrap">
             {/* Search Events */}

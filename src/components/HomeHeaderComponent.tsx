@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import SearchInputComponent from './SearchInputComponent'
 
-const HomeHeaderComponent = () => {
+const HomeHeaderComponent = ({formData, setFormData} : any) => {
     return (
         <div className="relative w-full flex flex-col items-center">
             <Image
@@ -16,7 +16,7 @@ const HomeHeaderComponent = () => {
                 <div className="text-7xl">Explore, Attend, Enjoy</div>
                 <div className="text-5xl">Events Made Easy</div>
                 <div className="w-[70%]">
-                    <SearchInputComponent />
+                    <SearchInputComponent formData={formData} setFormData={setFormData}/>
                 </div>
             </div>
         </div>
