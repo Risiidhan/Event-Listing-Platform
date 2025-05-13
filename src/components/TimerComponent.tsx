@@ -31,7 +31,7 @@ const TimerComponent = ({ event }: { event: any }) => {
     }
     return (
         <>
-            <p className={`text-gray-700 mt-2 py-1 px-2 w-fit rounded-sm text-sm ${statusLabel === "Expired" ? "bg-red-100" : "bg-green-200"}`}>
+            <div className={`text-gray-700 mt-2 py-1 px-2 w-fit rounded-sm text-sm ${statusLabel === "Expired" ? "bg-red-100" : "bg-green-200"}`}>
                 {statusLabel === "Expired" ? (
                     <span className="text-red-500 font-semibold">Expired</span>
                 ) : timeDiff ? (
@@ -40,7 +40,7 @@ const TimerComponent = ({ event }: { event: any }) => {
                         {`${timeDiff.days} ${timeDiff.days > 1 ? "days" : "day"}  : ${timeDiff.hours} ${timeDiff.hours > 1 ? "hours" : "hour"}  : ${timeDiff.minutes} ${timeDiff.minutes > 1 ? "minutes" : "minute"} `}
                     </>
                 ) : null}
-            </p>
+            </div>
         </>
     )
 }

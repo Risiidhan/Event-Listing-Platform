@@ -23,7 +23,7 @@ const EventComponent = ({ event }: { event: any }) => {
 
                 {/* Stretch to take up all remaining space */}
                 <p className="text-gray-700 mt-2 flex-1">{event?.description}</p>
-                <p className="text-gray-700 mt-2"><TimerComponent event={event} /></p>
+                <div className="text-gray-700 mt-2"><TimerComponent event={event} /></div>
                 <p className="text-sm text-gray-700 mt-2 border-1 rounded-full w-fit px-2 py-[2px] font-medium">
                     {event?.type}
                 </p>

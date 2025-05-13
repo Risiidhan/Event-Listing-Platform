@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import SearchInputComponent from './SearchInputComponent'
 
-const HomeHeaderComponent = ({ formData, setFormData, locationList, eventNameList }: any) => {
+const HomeHeaderComponent = () => {
     return (
         <div className="relative w-full min-h-[40dvh] flex flex-col items-center">
             <div className="relative w-full">
@@ -19,7 +19,7 @@ const HomeHeaderComponent = ({ formData, setFormData, locationList, eventNameLis
                 <div className="text-4xl lg:text-6xl xl:text-7xl">Explore, Attend, Enjoy</div>
                 <div className="text-2xl lg:text-4xl xl:text-5xl">Events Made Easy</div>
                 <div className="w-fit mt-4">
-                    <SearchInputComponent locationList={locationList} eventNameList={eventNameList} formData={formData} setFormData={setFormData} />
+                    <SearchInputComponent />
                 </div>
             </div>
         </div>

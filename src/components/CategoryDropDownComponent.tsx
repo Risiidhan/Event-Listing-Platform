@@ -1,10 +1,8 @@
+import { useEventContext } from "@/context/EventContext";
 
-interface ICategories {
-    list: string[],
-    setSelectedCategory: (category: string) => void,
-    selectedCategory: string
-}
-const CategoryDropDownComponent = ({ list, setSelectedCategory, selectedCategory }: ICategories) => {
+const CategoryDropDownComponent = ({list}: any) => {
+
+    const { selectedCategory, setSelectedCategory } = useEventContext();
 
     const orderedCategories = [
         selectedCategory,
