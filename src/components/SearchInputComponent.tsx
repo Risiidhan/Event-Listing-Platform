@@ -17,11 +17,11 @@ const SearchInputComponent = ({ formData, setFormData, locationList, eventNameLi
                 <AutoCompleteComponent label={"Search Event"} keyName={"eventName"} list={eventNameList} value={formData?.eventName} formData={formData} setFormData={setFormData} />
             </div>
             <div className="flex items-center w-full text-gray-800 font-medium">
-                <AutoCompleteComponent label={"Search Location"} keyName={"location"} list={locationList} value={formData?.location} formData={formData} setFormData={setFormData} />
+                <AutoCompleteComponent label={"Search Location"} keyName={"location"} list={[...new Set(locationList as string[])]} value={formData?.location} formData={formData} setFormData={setFormData} />
             </div>
             <div className="flex items-end w-full gap-2">
                 <div className="flex items-center  text-gray-800 font-medium">
-                    <DatePickerComponent />
+                    <DatePickerComponent label={"Search Location"} keyName={"date"} value={formData?.date} formData={formData} setFormData={setFormData} />
                 </div>
                 <button className="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
                     Search

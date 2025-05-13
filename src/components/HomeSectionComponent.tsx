@@ -20,6 +20,11 @@ const HomeSectionComponent = () => {
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
 
+    useEffect(()=>{
+        console.log(formData);
+        
+    },[formData])
+
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch(API_URL, {

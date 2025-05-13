@@ -18,7 +18,7 @@ const HomeHeaderComponent = ({ formData, setFormData, locationList, eventNameLis
             <div className="font-bold text-white w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center p-4 flex flex-col items-center gap-2">
                 <div className="text-4xl lg:text-6xl xl:text-7xl">Explore, Attend, Enjoy</div>
                 <div className="text-2xl lg:text-4xl xl:text-5xl">Events Made Easy</div>
-                <div className="w-fit">
+                <div className="w-fit mt-4">
                     <SearchInputComponent locationList={locationList} eventNameList={eventNameList} formData={formData} setFormData={setFormData} />
                 </div>
             </div>
