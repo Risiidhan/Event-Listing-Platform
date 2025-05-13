@@ -4,7 +4,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-const DatePickerComponent = ({ value, setFormData, formData, keyName }: any) => {
+const DatePickerComponent = ({ setFormData, formData }: any) => {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer sx={{ padding: 0 }} components={['DatePicker']}>
@@ -15,7 +15,6 @@ const DatePickerComponent = ({ value, setFormData, formData, keyName }: any) => 
                     }
                     label="Pick a date"
                     slotProps={{
-
                         textField: {
                             variant: 'standard',
                             InputProps: {
@@ -28,6 +27,9 @@ const DatePickerComponent = ({ value, setFormData, formData, keyName }: any) => 
                                 },
                             },
 
+                        },
+                        actionBar: {
+                            actions: ['clear', 'accept'], // show "Clear" and "OK" buttons
                         },
                     }} />
             </DemoContainer>

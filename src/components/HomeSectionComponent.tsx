@@ -14,7 +14,9 @@ const HomeSectionComponent = () => {
         selectedCategory,
         setLocationList,
         setEventNameList,
+        formData
     } = useEventContext();
+
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
 
@@ -52,6 +54,31 @@ const HomeSectionComponent = () => {
 
         setFilteredEvents(filtered);
     }, [selectedCategory, events]);
+
+    useEffect(() => {
+        const { eventName, location, date } = formData;
+
+        let filtered = events;
+        if (eventName && eventName.length > 1) {
+            filtered = filtered.filter((e: any) =>
+                e.title.toLowerCase().includes(eventName.toLowerCase())
+            );
+        }
+        if (location && location.length > 1) {
+            filtered = filtered.filter((e: any) =>
+                e.location.toLowerCase().includes(location.toLowerCase())
+            );
+        }
+        if (date) {
+            const selectedDate = new Date(date).toDateString();
+            filtered = filtered.filter((e: any) => {
+                const startDate = new Date(e.starts_at).toDateString();
+                return startDate === selectedDate;
+            });
+        }
+
+        setFilteredEvents(filtered);
+    }, [formData])
 
 
     return (
