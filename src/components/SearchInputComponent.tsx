@@ -1,47 +1,27 @@
 "use client"
 
 import React from 'react'
+import AutoCompleteComponent from './AutoCompleteComponent';
+import DatePickerComponent from './DatePickerComponent';
 
-const SearchInputComponent = ({formData, setFormData} : any) => {
+interface Props {
+    formData: any;
+    setFormData: (val: any) => void;
+    locationList: string[];
+    eventNameList: string[];
+}
+const SearchInputComponent = ({ formData, setFormData, locationList, eventNameList }: Props) => {
     return (
-        <div className="flex items-center bg-white/40 backdrop-blur-md rounded-lg p-4 justify-between shadow-md w-full max-w-5xl mx-auto gap-6 flex-wrap">
-            {/* Search Events */}
-            <div className="flex items-center gap-2 text-gray-800 font-medium">
-                <label htmlFor="eventSearch">
-                    <i className="fas fa-search"></i>
-                </label>
-                <input
-                    id="eventSearch"
-                    type="text"
-                    placeholder="Search events"
-                    className="bg-transparent outline-none placeholder-gray-600"
-                />
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 bg-white/40 backdrop-blur-md gap-2  rounded-lg p-4 shadow-md w-full mx-auto'>
+            <div className="flex items-center w-full text-gray-800 font-medium">
+                <AutoCompleteComponent label={"Search Event"} keyName={"eventName"} list={eventNameList} value={formData?.eventName} formData={formData} setFormData={setFormData} />
             </div>
-
-            {/* Location */}
-            <div className="flex items-center gap-2 text-gray-800 font-medium">
-                <label htmlFor="locationInput">
-                    <i className="fas fa-map-marker-alt"></i>
-                </label>
-                <input
-                    id="locationInput"
-                    type="text"
-                    placeholder="Enter location"
-                    className="bg-transparent outline-none placeholder-gray-600"
-                />
+            <div className="flex items-center w-full text-gray-800 font-medium">
+                <AutoCompleteComponent label={"Search Location"} keyName={"location"} list={locationList} value={formData?.location} formData={formData} setFormData={setFormData} />
             </div>
-
-            {/* Date Picker and Search Button */}
-            <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 text-gray-800 font-medium">
-                    <label htmlFor="datePicker">
-                        <i className="far fa-calendar-alt"></i>
-                    </label>
-                    <input
-                        id="datePicker"
-                        type="date"
-                        className="bg-transparent outline-none text-gray-700"
-                    />
+            <div className="flex items-end w-full gap-2">
+                <div className="flex items-center  text-gray-800 font-medium">
+                    <DatePickerComponent />
                 </div>
                 <button className="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
                     Search

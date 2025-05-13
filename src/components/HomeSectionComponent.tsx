@@ -10,8 +10,10 @@ const categories: string[] = ["Upcoming", "Ongoing", "Expired"];
 
 const HomeSectionComponent = () => {
     const [selectedCategory, setSelectedCategory] = useState("Ongoing");
+    const [locationList, setLocationList] = useState<string[]>([]);
+    const [eventNameList, setEventNameList] = useState<string[]>([]);
     const [formData, setFormData] = useState({
-        searchItem : "",
+        searchItem: "",
         location: "",
         date: null
     })
@@ -26,6 +28,12 @@ const HomeSectionComponent = () => {
             const data = await res.json();
             console.log(data, "logged events");
             setEvents(data);
+
+            const locations = data.map((e: any) => e.location);
+            const eventNames = data.map((e: any) => e.title);
+            setLocationList(locations);
+            setEventNameList(eventNames);
+            console.log(eventNames, locations);
         };
 
         fetchData();
@@ -52,14 +60,14 @@ const HomeSectionComponent = () => {
 
             return true;
         });
-        console.log(filtered);
-        
+
         setFilteredEvents(filtered);
     }, [selectedCategory, events]);
 
+
     return (
         <div>
-            <HomeHeaderComponent formData={formData} setFormData={setFormData} />
+            <HomeHeaderComponent locationList={locationList} eventNameList={eventNameList} formData={formData} setFormData={setFormData} />
             <div className="content-section px-4 sm:px-12">
                 <div className="flex flex-col md:flex-row gap-6">
                     <div className="w-full md:w-[200px] sticky top-4 h-fit">
