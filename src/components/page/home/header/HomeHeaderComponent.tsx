@@ -16,7 +16,7 @@ const HomeHeaderComponent = () => {
                 <div className="absolute inset-0 bg-[#0000006e] "></div>
             </div>
             <div className="font-bold text-white w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center p-4 flex flex-col items-center gap-2">
-                <div className="text-4xl lg:text-6xl xl:text-7xl">Eventify</div>
+                <div className="text-4xl lg:text-6xl xl:text-7xl">GetEventz</div>
                 <div className="text-2xl lg:text-4xl xl:text-5xl">Explore, Attend and Enjoy</div>
                 <div className="w-[90%] lg:w-fit mt-4">
                     <SearchInputComponent />

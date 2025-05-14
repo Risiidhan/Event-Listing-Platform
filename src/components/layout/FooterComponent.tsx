@@ -7,7 +7,7 @@ const FooterComponent = () => {
       <div className="content-section mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr]  gap-8">
           <div>
-            <h2 className="text-white text-xl font-bold mb-4">Eventify</h2>
+            <h2 className="text-white text-xl font-bold mb-4">GetEventz</h2>
             <p className="text-sm">Your go-to platform for discovering and hosting amazing events around you.</p>
           </div>
 
@@ -23,7 +23,7 @@ const FooterComponent = () => {
           <div>
             <h3 className="text-white font-semibold mb-3">Connect</h3>
             <ul className="space-y-2 text-sm">
-              <li>Email: support@eventify.com</li>
+              <li>Email: support@geteventz.com</li>
               <li>Phone: +1 (123) 456-7890</li>
               <li className="flex gap-3 mt-2">
                 <a href="#" className="hover:text-white">Twitter</a>
@@ -35,7 +35,7 @@ const FooterComponent = () => {
         </div>
 
         <div className="mt-8 border-t border-gray-700 pt-4 text-sm text-center">
-          © {new Date().getFullYear()} Eventify. All rights reserved.
+          © {new Date().getFullYear()} GetEventz. All rights reserved.
         </div>
       </div>
     </footer>
