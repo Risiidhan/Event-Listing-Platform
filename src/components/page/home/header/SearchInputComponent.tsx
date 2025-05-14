@@ -32,16 +32,16 @@ const SearchInputComponent = () => {
     return (
         <div className='flex flex-col lg:flex-row items-stretch md:h-[60px] gap-4 '>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-[4px]  rounded-lg shadow-md w-full mx-auto'>
-                <div className="flex items-center w-full bg-white py-[4px] px-[6px] rounded-lg md:rounded-l-lg lg:rounded-r-none text-gray-800 font-medium">
+                <div className="flex items-center w-full bg-white py-[8 px] px-[6px] rounded-lg md:rounded-l-lg lg:rounded-r-none text-gray-800 font-medium">
                     <AutoCompleteComponent label={"Search Event"} keyName={"eventName"} list={eventNameList} value={formData?.eventName} formData={formData} setFormData={setFormData} />
                 </div>
-                <div className="flex items-center w-full bg-white rounded-lg md:rounded-r-lg lg:rounded-none py-[4px] px-[6px] text-gray-800 font-medium">
+                <div className="flex items-center w-full bg-white rounded-lg md:rounded-r-lg lg:rounded-none py-[8  px] px-[6px] text-gray-800 font-medium">
                     <AutoCompleteComponent label={"Search Location"} keyName={"location"} list={[...new Set(locationList as string[])]} value={formData?.location} formData={formData} setFormData={setFormData} />
                 </div>
-                <div className="flex items-center w-full bg-white rounded-lg md:rounded-l-lg lg:rounded-none py-[4px] px-[6px] text-gray-800 font-medium">
+                <div className="flex items-center w-full bg-white rounded-lg md:rounded-l-lg lg:rounded-none py-[8  px] px-[6px] text-gray-800 font-medium">
                     <AutoCompleteComponent label={"Search Event Type"} keyName={"type"} list={[...new Set(eventTypes as string[])]} value={formData?.type} formData={formData} setFormData={setFormData} />
                 </div>
-                <div className="flex items-center w-full bg-white py-[4px] px-[6px] rounded-lg md:rounded-r-lg lg:rounded-l-none text-gray-800 font-medium">
+                <div className="flex items-center w-full bg-white py-[8 px] px-[6px] rounded-lg md:rounded-r-lg lg:rounded-l-none text-gray-800 font-medium">
                     <DatePickerComponent label={"Search Location"} keyName={"date"} value={formData?.date} formData={formData} setFormData={setFormData} />
                 </div>
 

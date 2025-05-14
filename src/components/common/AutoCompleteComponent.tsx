@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react';
-import { Autocomplete, TextField } from '@mui/material';
+import { Autocomplete, Stack, TextField } from '@mui/material';
 
 const AutoCompleteComponent = ({ list, value, setFormData, formData, label, keyName }: any) => {
     const [isMounted, setIsMounted] = useState(false);
@@ -13,26 +13,18 @@ const AutoCompleteComponent = ({ list, value, setFormData, formData, label, keyN
     if (!isMounted) return null;
 
     return (
-        <Autocomplete
-            options={list || []}
-            className='w-full'
-            value={value || ''}
-            onChange={(e, newValue) =>
-                setFormData({ ...formData, [keyName]: newValue || '' })
-            }
-            renderInput={(params) => (
-                <TextField
-                    {...params}
-                    label={label}
-                    variant="standard"
-                    InputProps={{
-                        ...params.InputProps,
-                        disableUnderline: true,
-                        className: 'bg-transparent placeholder-gray-600',
-                    }}
-                />
-            )}
-        />
+
+        <Stack spacing={2} sx={{ width: "100%" }}>
+            <Autocomplete
+                className='bg-white rounded-lg'
+                options={list || []}
+                renderInput={(params) => <TextField {...params} label={value ? "" : label} />}
+                value={value || ''}
+                onChange={(e, newValue) =>
+                    setFormData({ ...formData, [keyName]: newValue || '' })
+                }
+            />
+        </Stack>
     );
 };
 

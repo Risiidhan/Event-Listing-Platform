@@ -8,8 +8,6 @@ const NewEventListingComponent = ({ events }: any) => {
   const [categoriesList, setCategoriesList] = useState<any[]>([]);
 
   useEffect(() => {
-    console.log(events, "ji");
-
     const now = new Date();
 
     const upComing = events?.filter((event: any) => new Date(event.starts_at) > now);

@@ -32,37 +32,37 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
     }, [events]);
 
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     let filtered = events;
+        let filtered = events;
 
-    //     const { eventName, location, date, type } = formData;
-    //     if (eventName && eventName.length > 1) {
-    //         filtered = filtered.filter((e: any) =>
-    //             e.title.toLowerCase().includes(eventName.toLowerCase())
-    //         );
-    //     }
-    //     if (location && location.length > 1) {
-    //         filtered = filtered.filter((e: any) =>
-    //             e.location.toLowerCase().includes(location.toLowerCase())
-    //         );
-    //     }
+        const { eventName, location, date, type } = formData;
+        if (eventName && eventName.length > 1) {
+            filtered = filtered.filter((e: any) =>
+                e.title.toLowerCase().includes(eventName.toLowerCase())
+            );
+        }
+        if (location && location.length > 1) {
+            filtered = filtered.filter((e: any) =>
+                e.location.toLowerCase().includes(location.toLowerCase())
+            );
+        }
 
-    //     if (type && type.length > 1) {
-    //         filtered = filtered.filter((e: any) =>
-    //             e.type.toLowerCase().includes(type.toLowerCase())
-    //         );
-    //     }
+        if (type && type.length > 1) {
+            filtered = filtered.filter((e: any) =>
+                e.type.toLowerCase().includes(type.toLowerCase())
+            );
+        }
 
-    //     if (date) {
-    //         const selectedDate = new Date(date).toDateString();
-    //         filtered = filtered.filter((e: any) => {
-    //             const startDate = new Date(e.starts_at).toDateString();
-    //             return startDate === selectedDate;
-    //         });
-    //     }
-    //     setFilteredEvents(filtered);
-    // }, [formData])
+        if (date) {
+            const selectedDate = new Date(date).toDateString();
+            filtered = filtered.filter((e: any) => {
+                const startDate = new Date(e.starts_at).toDateString();
+                return startDate === selectedDate;
+            });
+        }
+        setFilteredEvents(filtered);
+    }, [formData])
 
 
     return (
@@ -84,7 +84,7 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
                 </div> */}
 
                 <div>
-                    <NewEventListingComponent event={events} />
+                    <NewEventListingComponent events={events} />
                 </div>
 
             </div>
