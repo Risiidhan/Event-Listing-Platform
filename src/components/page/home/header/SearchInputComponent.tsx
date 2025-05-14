@@ -1,8 +1,8 @@
 "use client"
 
 import React from 'react'
-import AutoCompleteComponent from './AutoCompleteComponent';
-import DatePickerComponent from './DatePickerComponent';
+import AutoCompleteComponent from '../../../common/AutoCompleteComponent';
+import DatePickerComponent from '../../../common/DatePickerComponent';
 import { useEventContext } from '@/context/EventContext';
 
 interface Props {
@@ -42,7 +42,7 @@ const SearchInputComponent = () => {
             <div className="flex items-center  text-gray-800 font-medium">
                 <DatePickerComponent label={"Search Location"} keyName={"date"} value={formData?.date} formData={formData} setFormData={setFormData} />
             </div>
-            <button onClick={handleClear} className="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
+            <button onClick={handleClear} className="bg-blue-600 cursor-pointer active:scale-95 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
                 Clear All
             </button>
         </div>

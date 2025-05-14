@@ -1,15 +1,14 @@
 "use client"
 
-import HomeHeaderComponent from './HomeHeaderComponent';
-import CategoryDropDownComponent from './CategoryDropDownComponent';
-import EventListComponent from './EventListComponent';
+import HomeHeaderComponent from './header/HomeHeaderComponent';
+import CategoryDropDownComponent from '../../CategoryDropDownComponent';
+import EventListComponent from '../../EventListComponent';
 import { useEffect, useState } from 'react';
 import { useEventContext } from '@/context/EventContext';
 
-const API_URL = 'https://68148b33225ff1af16292eee.mockapi.io/api/v1/events';
 const categories: string[] = ["Upcoming", "Ongoing", "Expired"];
 
-const HomeSectionComponent = () => {
+const HomeSectionComponent = ({ events }: { events: any[] }) => {
     const {
         selectedCategory,
         setLocationList,
@@ -18,28 +17,17 @@ const HomeSectionComponent = () => {
         formData
     } = useEventContext();
 
-    const [events, setEvents] = useState([]);
-    const [filteredEvents, setFilteredEvents] = useState([]);
+    const [filteredEvents, setFilteredEvents] = useState<any[]>([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            const res = await fetch(API_URL, {
-                next: { revalidate: 60 }
-            });
-            const data = await res.json();
-            setEvents(data);
+        const locations = Array.from(new Set(events.map((e: any) => e.location)));
+        const eventNames = Array.from(new Set(events.map((e: any) => e.title)));
+        const eventTypes = Array.from(new Set(events.map((e: any) => e.type)))
 
-            const locations = Array.from(new Set(data.map((e: any) => e.location)));
-            const eventNames = Array.from(new Set(data.map((e: any) => e.title)));
-            const eventTypes = Array.from(new Set(data.map((e:any)=> e.type)))
-
-            setLocationList(locations as string[]);
-            setEventNameList(eventNames as string[]);
-            setEventTypes(eventTypes as string[]);
-        };
-
-        fetchData();
-    }, []);
+        setLocationList(locations as string[]);
+        setEventNameList(eventNames as string[]);
+        setEventTypes(eventTypes as string[]);
+    }, [events]);
 
     useEffect(() => {
         const now = new Date();
@@ -58,6 +46,7 @@ const HomeSectionComponent = () => {
         setFilteredEvents(filtered);
     }, [selectedCategory, events]);
 
+
     useEffect(() => {
         const { eventName, location, date, type } = formData;
 
@@ -73,7 +62,7 @@ const HomeSectionComponent = () => {
             );
         }
 
-         if (type && type.length > 1) {
+        if (type && type.length > 1) {
             filtered = filtered.filter((e: any) =>
                 e.type.toLowerCase().includes(type.toLowerCase())
             );
