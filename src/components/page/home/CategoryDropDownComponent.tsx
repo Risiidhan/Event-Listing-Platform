@@ -2,11 +2,11 @@ import { useEventContext } from "@/context/EventContext";
 
 const CategoryDropDownComponent = ({list}: any) => {
 
-    const { selectedCategory, setSelectedCategory } = useEventContext();
+    const { formData, setFormData } = useEventContext();
 
     const orderedCategories = [
-        selectedCategory,
-        ...list.filter((cat: string) => cat !== selectedCategory),
+        formData?.category,
+        ...list.filter((cat: string) => cat !== formData?.category),
     ];
 
     return (
@@ -14,9 +14,9 @@ const CategoryDropDownComponent = ({list}: any) => {
             {orderedCategories.map((category: string, index) => (
                 <div
                     key={index}
-                    onClick={() => setSelectedCategory(category)}
+                    onClick={() => setFormData({ ...formData, category: category || '' })}
                     className={`cursor-pointer py-2 px-4 rounded-md transition-all duration-300 ease-in-out 
-                                 ${category === selectedCategory ? "font-bold text-black text-3xl hover:underline"
+                                 ${category === formData?.category ? "font-bold text-black text-3xl hover:underline"
                             : "text-gray-500 hover:text-[20px]"}`}>
                     {category}
                 </div>

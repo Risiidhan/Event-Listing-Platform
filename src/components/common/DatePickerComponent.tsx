@@ -17,8 +17,8 @@ const DatePickerComponent = ({ setFormData, formData }: any) => {
         
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer sx={{ padding: 0 }} components={['DatePicker']}>
-                <DatePicker
+            <DemoContainer  sx={{ padding: 0, width: "100%", overflow: "hidden" }} components={['DatePicker']}>
+                <DatePicker className='w-full'
                     value={formData.date || null}
                     onChange={(newValue) =>
                         setFormData({ ...formData, date: newValue })

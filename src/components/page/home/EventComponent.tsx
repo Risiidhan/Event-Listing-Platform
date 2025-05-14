@@ -1,7 +1,7 @@
 
 import React from 'react'
-import TimerComponent from './common/TimerComponent'
-import FallBackImgComponent from './common/FallBackImgComponent'
+import TimerComponent from '../../common/TimerComponent'
+import FallBackImgComponent from '../../common/FallBackImgComponent'
 
 const EventComponent = ({ event }: { event: any }) => {
     return (

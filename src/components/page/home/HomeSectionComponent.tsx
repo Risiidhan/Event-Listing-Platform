@@ -1,20 +1,20 @@
 "use client"
 
 import HomeHeaderComponent from './header/HomeHeaderComponent';
-import CategoryDropDownComponent from '../../CategoryDropDownComponent';
-import EventListComponent from '../../EventListComponent';
+import CategoryDropDownComponent from './CategoryDropDownComponent';
+import EventListComponent from './EventListComponent';
 import { useEffect, useState } from 'react';
 import { useEventContext } from '@/context/EventContext';
+import NoEventComponent from './NoEventComponent';
 
-const categories: string[] = ["Upcoming", "Ongoing", "Expired"];
+const categories: string[] = ["All", "Upcoming", "Ongoing", "Expired"];
 
 const HomeSectionComponent = ({ events }: { events: any[] }) => {
     const {
-        selectedCategory,
         setLocationList,
         setEventNameList,
         setEventTypes,
-        formData
+        formData,
     } = useEventContext();
 
     const [filteredEvents, setFilteredEvents] = useState<any[]>([]);
@@ -29,28 +29,25 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
         setEventTypes(eventTypes as string[]);
     }, [events]);
 
+
     useEffect(() => {
         const now = new Date();
 
-        const filtered = events.filter((event: any) => {
+        let filtered = events.filter((event: any) => {
+            if (formData?.category === "All") return events;
+
             const start = new Date(event?.starts_at);
             const end = new Date(event?.expires_at);
 
-            if (selectedCategory === "Upcoming") return start > now;
-            if (selectedCategory === "Ongoing") return start <= now && end > now;
-            if (selectedCategory === "Expired") return end <= now;
+            if (formData?.category === "Upcoming") return start > now;
+            if (formData?.category === "Ongoing") return start <= now && end > now;
+            if (formData?.category === "Expired") return end <= now;
 
             return true;
         });
 
-        setFilteredEvents(filtered);
-    }, [selectedCategory, events]);
 
-
-    useEffect(() => {
         const { eventName, location, date, type } = formData;
-
-        let filtered = events;
         if (eventName && eventName.length > 1) {
             filtered = filtered.filter((e: any) =>
                 e.title.toLowerCase().includes(eventName.toLowerCase())
@@ -75,9 +72,6 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
                 return startDate === selectedDate;
             });
         }
-
-
-
         setFilteredEvents(filtered);
     }, [formData])
 
@@ -91,7 +85,9 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
                         <CategoryDropDownComponent list={categories} />
                     </div>
                     <div className="flex-1">
-                        <EventListComponent events={filteredEvents} />
+                        {filteredEvents.length > 0 ? (
+                            <EventListComponent events={filteredEvents} />
+                        ) : <NoEventComponent />}
                     </div>
                 </div>
 

@@ -6,13 +6,12 @@ interface IFormData {
     location: string;
     date: any;
     type: any;
+    category: string;
 };
 
 type EventContextType = {
     formData: IFormData;
     setFormData: React.Dispatch<React.SetStateAction<IFormData>>;
-    selectedCategory: string;
-    setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
     locationList: string[];
     setLocationList: React.Dispatch<React.SetStateAction<string[]>>;
     eventNameList: string[];
@@ -29,10 +28,10 @@ export const EventProvider = ({ children }: { children: React.ReactNode }) => {
         eventName: "",
         location: "",
         date: null,
-        type: ""
+        type: "",
+        category: "Ongoing"
     });
 
-    const [selectedCategory, setSelectedCategory] = useState("Ongoing");
     const [locationList, setLocationList] = useState<string[]>([]);
     const [eventNameList, setEventNameList] = useState<string[]>([]);
     const [eventTypes, setEventTypes] = useState<string[]>([]);
@@ -42,8 +41,6 @@ export const EventProvider = ({ children }: { children: React.ReactNode }) => {
             value={{
                 formData,
                 setFormData,
-                selectedCategory,
-                setSelectedCategory,
                 locationList,
                 setLocationList,
                 eventNameList,
