@@ -8,6 +8,8 @@ import { useEventContext } from '@/context/EventContext';
 import NoEventComponent from './NoEventComponent';
 import CategoryMobileComponent from './CategoryMobileComponent';
 import NewEventListingComponent from './NewEventListingComponent';
+import CarouselComponent from './CarouselComponent';
+import EventTypesSlider from './EventTypesSlider';
 
 const categories: string[] = ["All", "Upcoming", "Ongoing", "Expired"];
 
@@ -20,6 +22,7 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
     } = useEventContext();
 
     const [filteredEvents, setFilteredEvents] = useState<any[]>([]);
+    const [categoriesList, setCategoriesList] = useState<any[]>([]);
 
     useEffect(() => {
         const locations = Array.from(new Set(events.map((e: any) => e.location)));
@@ -62,6 +65,21 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
             });
         }
         setFilteredEvents(filtered);
+
+        const now = new Date();
+        const upComing = filtered?.filter((event: any) => new Date(event.starts_at) > now);
+        const onGoing = filtered?.filter((event: any) => {
+            const start = new Date(event.starts_at);
+            const end = new Date(event.expires_at);
+            return start <= now && end > now;
+        });
+        const expired = filtered?.filter((event: any) => new Date(event.expires_at) <= now);
+
+        setCategoriesList([
+            { title: "Ongoing", list: onGoing },
+            { title: "Upcoming", list: upComing },
+            { title: "Expired", list: expired },
+        ]);
     }, [formData])
 
 
@@ -83,8 +101,11 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
                     </div>
                 </div> */}
 
+                <CarouselComponent events={events?.slice(0, 3)} />
+                <EventTypesSlider />
+
                 <div>
-                    <NewEventListingComponent events={events} />
+                    <NewEventListingComponent events={categoriesList} />
                 </div>
 
             </div>

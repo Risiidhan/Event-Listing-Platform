@@ -17,21 +17,22 @@ const NoEventComponent = () => {
     }
 
     return (
-        <div className="text-center flex flex-col w-full justify-center text-gray-600 mt-8">
+        <div className="text-center flex flex-col w-full justify-center shadow-md rounded-lg p-4 text-gray-600 mt-8">
             <div className='w-full flex justify-center'>
                 <Image
-                    className="object-cover  w-[20%]"
+                    className="object-cover  w-[40%]"
                     src="/img/no-event.jpg"
                     alt="banner"
                     height={8000}
                     width={8000}
                 />
             </div>
-            <p className="text-lg font-semibold">No events found for the selected &nbsp;
+            <p className="text-lg font-semibold">No events found for this category &nbsp;</p>
+            {/* <p className="text-lg font-semibold">No events found for the selected &nbsp;
                 {values.length > 0 && (
                     values.join(', ')
                 )}
-            </p>
+            </p> */}
         </div>
     );
 }

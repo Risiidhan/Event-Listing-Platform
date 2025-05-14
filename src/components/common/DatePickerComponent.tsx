@@ -16,48 +16,35 @@ const DatePickerComponent = ({ setFormData, formData }: any) => {
     if (!isMounted) return null;
 
     return (
+        // <LocalizationProvider dateAdapter={AdapterDayjs}>
+        //     <DemoContainer components={['DatePicker']} sx={{ padding: "4px", width: "100%", overflow: "hidden" }}>
+        //         <DatePicker className='bg-white rounded-lg' label={"Basic date picker"}
+        //             onChange={(newValue) =>
+        //                 setFormData({ ...formData, date: newValue })
+        //             }
+        //             slotProps={{
+        //                 actionBar: {
+        //                     actions: ['clear', 'accept'], // show "Clear" and "OK" buttons
+        //                 },
+        //             }}
+        //         />
+        //     </DemoContainer>
+        // </LocalizationProvider>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DatePicker']} sx={{ padding: "6px", width: "100%", overflow: "hidden" }}>
-                <DatePicker className='bg-white rounded-lg' label={formData.date ? "" : "Basic date picker"}
+            <DemoContainer  sx={{ padding: "4px", width: "100%", overflow: "hidden" }} components={['DatePicker']}>
+                <DatePicker className='w-full'
+                    value={formData.date || null}
                     onChange={(newValue) =>
                         setFormData({ ...formData, date: newValue })
                     }
+                    label="Pick a date"
                     slotProps={{
                         actionBar: {
                             actions: ['clear', 'accept'], // show "Clear" and "OK" buttons
                         },
-                    }}
-                />
+                    }} />
             </DemoContainer>
         </LocalizationProvider>
-        // <LocalizationProvider dateAdapter={AdapterDayjs}>
-        //     <DemoContainer  sx={{ padding: 0, width: "100%", overflow: "hidden" }} components={['DatePicker']}>
-        //         <DatePicker className='w-full'
-        //             value={formData.date || null}
-        //             onChange={(newValue) =>
-        //                 setFormData({ ...formData, date: newValue })
-        //             }
-        //             label="Pick a date"
-        //             slotProps={{
-        //                 textField: {
-        //                     variant: 'standard',
-        //                     InputProps: {
-        //                         disableUnderline: true,
-        //                         sx: {
-        //                             border: 'none',
-        //                             backgroundColor: 'transparent',
-        //                             paddingX: 0,
-        //                             overflow: "hidden"
-        //                         },
-        //                     },
-
-        //                 },
-        //                 actionBar: {
-        //                     actions: ['clear', 'accept'], // show "Clear" and "OK" buttons
-        //                 },
-        //             }} />
-        //     </DemoContainer>
-        // </LocalizationProvider>
     )
 }
 

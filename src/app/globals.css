@@ -10,13 +10,13 @@ input,
 textarea,
 select {
   font-size: 16px;
-  outline: none; 
+  outline: none;
 }
 
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: none; 
+  outline: none;
 }
 
 .content-section {
@@ -29,6 +29,16 @@ select:focus-visible {
   font-weight: 300;
   line-height: 1.5;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 
 @media only screen and (max-width: 600px) {
   .content-para {
