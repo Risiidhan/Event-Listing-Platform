@@ -14,6 +14,7 @@ const HomeSectionComponent = () => {
         selectedCategory,
         setLocationList,
         setEventNameList,
+        setEventTypes,
         formData
     } = useEventContext();
 
@@ -30,9 +31,11 @@ const HomeSectionComponent = () => {
 
             const locations = Array.from(new Set(data.map((e: any) => e.location)));
             const eventNames = Array.from(new Set(data.map((e: any) => e.title)));
+            const eventTypes = Array.from(new Set(data.map((e:any)=> e.type)))
 
             setLocationList(locations as string[]);
             setEventNameList(eventNames as string[]);
+            setEventTypes(eventTypes as string[]);
         };
 
         fetchData();
@@ -56,7 +59,7 @@ const HomeSectionComponent = () => {
     }, [selectedCategory, events]);
 
     useEffect(() => {
-        const { eventName, location, date } = formData;
+        const { eventName, location, date, type } = formData;
 
         let filtered = events;
         if (eventName && eventName.length > 1) {
@@ -69,6 +72,13 @@ const HomeSectionComponent = () => {
                 e.location.toLowerCase().includes(location.toLowerCase())
             );
         }
+
+         if (type && type.length > 1) {
+            filtered = filtered.filter((e: any) =>
+                e.type.toLowerCase().includes(type.toLowerCase())
+            );
+        }
+
         if (date) {
             const selectedDate = new Date(date).toDateString();
             filtered = filtered.filter((e: any) => {
@@ -76,6 +86,8 @@ const HomeSectionComponent = () => {
                 return startDate === selectedDate;
             });
         }
+
+
 
         setFilteredEvents(filtered);
     }, [formData])

@@ -15,25 +15,27 @@ const SearchInputComponent = () => {
     const {
         eventNameList,
         locationList,
+        eventTypes,
         formData,
         setFormData
     } = useEventContext();
     return (
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 bg-white/40 backdrop-blur-md gap-2  rounded-lg p-4 shadow-md w-full mx-auto'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 bg-white/40 backdrop-blur-md gap-2  rounded-lg p-4 shadow-md w-full mx-auto'>
             <div className="flex items-center w-full text-gray-800 font-medium">
                 <AutoCompleteComponent label={"Search Event"} keyName={"eventName"} list={eventNameList} value={formData?.eventName} formData={formData} setFormData={setFormData} />
             </div>
             <div className="flex items-center w-full text-gray-800 font-medium">
                 <AutoCompleteComponent label={"Search Location"} keyName={"location"} list={[...new Set(locationList as string[])]} value={formData?.location} formData={formData} setFormData={setFormData} />
             </div>
-            <div className="flex items-end w-full gap-2">
-                <div className="flex items-center  text-gray-800 font-medium">
-                    <DatePickerComponent label={"Search Location"} keyName={"date"} value={formData?.date} formData={formData} setFormData={setFormData} />
-                </div>
-                <button className="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
-                    Search
-                </button>
+            <div className="flex items-center w-full text-gray-800 font-medium">
+                <AutoCompleteComponent label={"Search Type"} keyName={"type"} list={[...new Set(eventTypes as string[])]} value={formData?.type} formData={formData} setFormData={setFormData} />
             </div>
+            <div className="flex items-center  text-gray-800 font-medium">
+                <DatePickerComponent label={"Search Location"} keyName={"date"} value={formData?.date} formData={formData} setFormData={setFormData} />
+            </div>
+            <button className="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
+                Clear All
+            </button>
         </div>
     )
 }
