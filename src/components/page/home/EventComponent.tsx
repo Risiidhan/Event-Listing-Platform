@@ -2,6 +2,7 @@
 import React from 'react'
 import TimerComponent from '../../common/TimerComponent'
 import FallBackImgComponent from '../../common/FallBackImgComponent'
+import { FaCalendarDays, FaLocationDot } from 'react-icons/fa6'
 
 const EventComponent = ({ event }: { event: any }) => {
     return (
@@ -13,21 +14,21 @@ const EventComponent = ({ event }: { event: any }) => {
                 alt={event?.title}
                 className="w-full h-48 object-cover"
             />
-            <div className="p-4 flex flex-col flex-1">
-                <h2 className="text-xl font-bold mb-2">{event?.title}</h2>
-                <p className="text-sm text-gray-600 mb-1">
-                    <i className="fas fa-map-marker-alt mr-1" />
+            <div className="p-4 flex flex-col gap-[6px] flex-1">
+                <h2 className="text-xl font-bold">{event?.title}</h2>
+                <p className="text-sm flex gap-1 items-center text-gray-600">
+                   <FaLocationDot/>
                     {event?.location}
                 </p>
-                <p className="text-sm text-gray-600 mb-1">
-                    <i className="far fa-calendar-alt mr-1" />
+                <p className="text-sm flex gap-1 items-center text-gray-600">
+                    <FaCalendarDays />
                     {new Date(event?.starts_at).toLocaleDateString()} -{" "}
                     {new Date(event?.expires_at).toLocaleDateString()}
                 </p>
 
-                <p className="text-gray-700 mt-2 flex-1">{event?.description}</p>
-                <div className="text-gray-700 mt-2"><TimerComponent event={event} /></div>
-                <p className="text-sm text-gray-700 mt-2 border-1 rounded-full w-fit px-2 py-[2px] font-medium">
+                <p className="text-gray-700 flex-1">{event?.description}</p>
+                <div className="text-gray-700"><TimerComponent event={event} /></div>
+                <p className="text-sm text-gray-700 border-1 rounded-full w-fit px-2 py-[2px] font-medium">
                     {event?.type}
                 </p>
             </div>

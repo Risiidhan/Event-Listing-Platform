@@ -48,7 +48,7 @@ const SearchInputComponent = () => {
             </div>
             <button
                 onClick={handleClear}
-                className="bg-blue-600 h-full px-4 py-1 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
+                className="bg-blue-600 h-[50px] sm:h-full px-4 py-1 cursor-pointer active:scale-95 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
             >
                 Clear
             </button>
