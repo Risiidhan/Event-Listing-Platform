@@ -33,7 +33,7 @@ const TimerComponent = ({ event }: { event: any }) => {
         <>
             <div className={`text-gray-700 mt-2 py-1 px-2 w-fit rounded-sm text-sm ${statusLabel === "Expired" ? "bg-red-100" : "bg-green-200"}`}>
                 {statusLabel === "Expired" ? (
-                    <span className="text-red-500 font-semibold">Expired</span>
+                    <span className="text-red-500 text-[14px] font-semibold">Expired</span>
                 ) : timeDiff ? (
                     <>
                         <span className="font-semibold">{statusLabel}:</span>{" "}

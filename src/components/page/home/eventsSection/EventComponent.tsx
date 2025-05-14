@@ -1,7 +1,7 @@
 
 import React from 'react'
-import TimerComponent from '../../common/TimerComponent'
-import FallBackImgComponent from '../../common/FallBackImgComponent'
+import TimerComponent from '../../../common/TimerComponent'
+import FallBackImgComponent from '../../../common/FallBackImgComponent'
 import { FaCalendarDays, FaLocationDot } from 'react-icons/fa6'
 
 const EventComponent = ({ event }: { event: any }) => {

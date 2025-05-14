@@ -1,4 +1,4 @@
-import HomeSectionComponent from "@/components/page/home/HomeSectionComponent";
+import HomeSectionComponent from "@/components/page/home/eventsSection/HomeSectionComponent";
 import { EventProvider } from "@/context/EventContext";
 
 export const revalidate = 60; // Rebuild the page every 60 seconds
