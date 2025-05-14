@@ -1,12 +1,20 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Autocomplete, TextField } from '@mui/material';
 
 const AutoCompleteComponent = ({ list, value, setFormData, formData, label, keyName }: any) => {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) return null;
+
     return (
         <Autocomplete
-            options={list}
+            options={list || []}
             className='w-full'
             value={value || ''}
             onChange={(e, newValue) =>
@@ -25,7 +33,7 @@ const AutoCompleteComponent = ({ list, value, setFormData, formData, label, keyN
                 />
             )}
         />
-    )
-}
+    );
+};
 
 export default AutoCompleteComponent

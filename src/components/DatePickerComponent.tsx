@@ -1,10 +1,20 @@
-import * as React from 'react';
+"use client"
+
+import React, { useEffect, useState } from 'react';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const DatePickerComponent = ({ setFormData, formData }: any) => {
+      const [isMounted, setIsMounted] = useState(false);
+    
+        useEffect(() => {
+            setIsMounted(true);
+        }, []);
+    
+        if (!isMounted) return null;
+        
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer sx={{ padding: 0 }} components={['DatePicker']}>

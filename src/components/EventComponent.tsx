@@ -1,10 +1,15 @@
+
 import React from 'react'
 import TimerComponent from './TimerComponent'
+import Image from 'next/image'
+import FallBackImgComponent from './common/FallBackImgComponent'
 
 const EventComponent = ({ event }: { event: any }) => {
     return (
         <div className="bg-white flex flex-col rounded-xl shadow-md overflow-hidden transition hover:shadow-lg">
-            <img
+            <FallBackImgComponent
+                width={800}
+                height={800}
                 src={event?.image_url}
                 alt={event?.title}
                 className="w-full h-48 object-cover"
