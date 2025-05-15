@@ -23,6 +23,14 @@ const AutoCompleteComponent = ({ list, value, setFormData, formData, label, keyN
                 onChange={(e, newValue) =>
                     setFormData({ ...formData, [keyName]: newValue || '' })
                 }
+                sx={{
+                    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                        border: "none",
+                    },
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        border: "none",
+                    },
+                }}
             />
         </Stack>
     );

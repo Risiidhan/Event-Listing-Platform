@@ -31,8 +31,16 @@ const DatePickerComponent = ({ setFormData, formData }: any) => {
         //     </DemoContainer>
         // </LocalizationProvider>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer  sx={{ padding: "4px", width: "100%", overflow: "hidden" }} components={['DatePicker']}>
+            <DemoContainer sx={{ padding: "4px", width: "100%", overflow: "hidden" }} components={['DatePicker']}>
                 <DatePicker className='w-full'
+                    sx={{
+                        "& .css-lqwr9g-MuiPickersOutlinedInput-notchedOutline": {
+                            border: "none"
+                        },
+                         "& .css-vycme6-MuiPickersInputBase-root-MuiPickersOutlinedInput-root.Mui-focused:not(.Mui-error) .MuiPickersOutlinedInput-notchedOutline": {
+                        border: "none",
+                    },
+                    }}  
                     value={formData.date || null}
                     onChange={(newValue) =>
                         setFormData({ ...formData, date: newValue })
@@ -42,8 +50,11 @@ const DatePickerComponent = ({ setFormData, formData }: any) => {
                         actionBar: {
                             actions: ['clear', 'accept'], // show "Clear" and "OK" buttons
                         },
+
                     }} />
-            </DemoContainer>
+
+            </DemoContainer
+            >
         </LocalizationProvider>
     )
 }

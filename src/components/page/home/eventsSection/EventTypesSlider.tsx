@@ -11,8 +11,7 @@ const EventTypesSlider = () => {
                     <div
                         onClick={()=> setFormData({ ...formData, type: item || '' })}
                         key={index}
-                        className={`border p-2 min-w-[100px] text-center rounded-lg ${formData.type == item ? "bg-[#58585B] text-white" : "bg-white text-[#58585B] border-[#58585B]"} hover:scale-105 whitespace-nowrap shadow-sm  cursor-pointer transition`}
-                    >
+                        className={`border text-[14px] p-2 min-w-[100px] text-center rounded-lg ${formData.type == item ? "bg-[#58585B] text-white" : "bg-white text-[#58585B] border-[#58585B]"} hover:scale-105 whitespace-nowrap cursor-pointer transition`}>
                         {item}
                     </div>
                 ))}
