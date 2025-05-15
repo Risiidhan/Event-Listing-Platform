@@ -11,7 +11,7 @@ const NewEventListingComponent = ({ events }: any) => {
     <div className='content-section'>
       {events.map((item: any) => (
         <div className='pt-[20px]' key={item.title}>
-          <h2 className="text-[24px] font-semibold mb-2">{item.title} Events
+          <h2 className="text-[24px] text-[#58585B] font-semibold mb-2">{item.title} Events
             {item?.list.length == 0 ? " (No events listed in this category)" : ""}
           </h2>
           <div className="flex-1 py-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">

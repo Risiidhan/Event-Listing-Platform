@@ -5,13 +5,13 @@ import { FaCalendarDays, FaLocationDot } from 'react-icons/fa6'
 
 const NewEventContentComponent = ({ event }: { event: any }) => {
     return (
-        <div className=" flex flex-col relative rounded-xl shadow-md overflow-hidden transition ">
+        <div className=" flex sm:flex-col relative rounded-xl shadow-md overflow-hidden transition ">
             <FallBackImgComponent
                 width={800}
                 height={800}
                 src={event?.image_url}
                 alt={event?.title}
-                className="w-full rounded-2xl aspect-[6/4] h-auto object-cover"
+                className="w-[150px] h-full aspect-square sm:w-full sm:h-auto sm:rounded-2xl sm:aspect-[6/4] object-cover object-center"
             />
             <div className="p-[12px] flex flex-col gap-[6px] flex-1">
                 <h2 className="text-[18px] font-semibold text-gray-600">{event?.title}</h2>

@@ -6,12 +6,12 @@ const EventTypesSlider = () => {
 
     return (
         <div className="overflow-x-auto mt-[20px] w-full hide-scrollbar">
-            <div className="flex gap-2 w-max px-2 py-2">
+            <div className="flex gap-2 w-max py-2">
                 {eventTypes.map((item: string, index: number) => (
                     <div
                         onClick={()=> setFormData({ ...formData, type: item || '' })}
                         key={index}
-                        className={`border p-2 min-w-[100px] text-center rounded-lg ${formData.type == item ? "bg-black text-white" : "bg-white"} hover:scale-105 whitespace-nowrap shadow-sm  cursor-pointer transition`}
+                        className={`border p-2 min-w-[100px] text-center rounded-lg ${formData.type == item ? "bg-[#58585B] text-white" : "bg-white text-[#58585B] border-[#58585B]"} hover:scale-105 whitespace-nowrap shadow-sm  cursor-pointer transition`}
                     >
                         {item}
                     </div>
