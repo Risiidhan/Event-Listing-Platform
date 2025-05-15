@@ -26,7 +26,7 @@ const NewEventContentComponent = ({ event }: { event: any }) => {
                     {new Date(event?.expires_at).toLocaleDateString()}
                 </p>
 
-                <p className="text-gray-700 text-[14px] flex-1">{event?.description}</p>
+                <p className="text-gray-700 text-[14px] flex-1 line-clamp-2">{event?.description}</p>
                 <div className="text-gray-700"><TimerComponent event={event} /></div>
                 <div className="text-sm absolute top-[12px] left-[12px] bg-white text-gray-700 border-1 rounded-full w-fit px-2 py-[2px] font-medium">
                     {event?.type}
