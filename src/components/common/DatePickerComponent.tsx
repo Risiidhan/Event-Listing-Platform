@@ -43,13 +43,13 @@ const DatePickerComponent = ({ setFormData, formData }: any) => {
                         "& .Mui-focused:not(.Mui-error) .MuiPickersOutlinedInput-notchedOutline": {
                             border: "none",
                         },
-                        "& .MuiFormLabel-root MuiInputLabel-root .MuiInputLabel-formControl .Mui-focused": {
+                        "& .css-1niro10.Mui-focused .MuiFormLabel-root MuiInputLabel-root .MuiInputLabel-formControl .Mui-focused": {
                             padding: "2px 0px",
                         },
-                        "& .css-113d811-MuiFormLabel-root-MuiInputLabel-root": {
+                        "& .css-1niro10.Mui-focused .css-113d811-MuiFormLabel-root-MuiInputLabel-root": {
                             padding: "2px 0px",
                         },
-                        "& .MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated": {
+                        "& .css-1niro10.Mui-focused .MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated": {
                             padding: "2px 0px",
                         }
                     }
