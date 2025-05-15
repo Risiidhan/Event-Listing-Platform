@@ -43,7 +43,13 @@ const DatePickerComponent = ({ setFormData, formData }: any) => {
                         "& .MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl": {
                             padding: "2px 0px",
                         },
+                        "& .Mui-focused:not(.Mui-error) .MuiPickersOutlinedInput-notchedOutline": {
+                            border: "none",
+                        },
                         "& .css-113d811-MuiFormLabel-root-MuiInputLabel-root": {
+                            padding: "2px 0px",
+                        },
+                        "& .MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated": {
                             padding: "2px 0px",
                         }
                     }
@@ -52,7 +58,7 @@ const DatePickerComponent = ({ setFormData, formData }: any) => {
                     onChange={(newValue) =>
                         setFormData({ ...formData, date: newValue })
                     }
-                    label={formData.date ? "": "Pick a date"  }
+                    label={formData.date ? "" : "Pick a date"}
                     slotProps={{
                         actionBar: {
                             actions: ['clear', 'accept'], // show "Clear" and "OK" buttons
