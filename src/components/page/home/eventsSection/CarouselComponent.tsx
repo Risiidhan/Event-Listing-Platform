@@ -17,7 +17,7 @@ const CarouselComponent = ({ events }: any) => {
   const event = events?.[currentIndex];
 
   return (
-    <div className="w-full aspect-square sm:aspect-[3/2] lg:aspect-[3/1] bg-red-300 rounded-2xl overflow-hidden mt-[60px] h-auto relative">
+    <div className="w-full aspect-square sm:aspect-[3/2] lg:aspect-[3/1] rounded-2xl overflow-hidden mt-[60px] h-auto relative">
       {event && (
         <>
           <Image

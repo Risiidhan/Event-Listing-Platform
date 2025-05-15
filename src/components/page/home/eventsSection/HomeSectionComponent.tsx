@@ -87,20 +87,6 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
         <div>
             <HomeHeaderComponent />
             <div className="content-section px-4 sm:px-12">
-                {/* <div className='flex justify-end mt-4 sticky top-0 pt-2 bg-white lg:hidden'>
-                    <CategoryMobileComponent list={categories} />
-                </div> */}
-                {/* <div className="flex flex-col md:flex-row gap-6 mt-[40px]">
-                    <div className="hidden lg:flex w-full md:w-[200px] sticky top-4 h-fit">
-                        <CategoryDropDownComponent list={categories} />
-                    </div>
-                    <div className="flex-1">
-                        {filteredEvents.length > 0 ? (
-                            <EventListComponent events={filteredEvents} />
-                        ) : <NoEventComponent />}
-                    </div>
-                </div> */}
-
                 <CarouselComponent events={events?.slice(0, 3)} />
                 <EventTypesSlider />
 

@@ -30,8 +30,8 @@ const NewEventContentComponent = ({ event }: { event: any }) => {
                     </p>
 
                     <p className="text-gray-700 text-left text-[14px] flex-1 line-clamp-2">{event?.description} &nbsp;
-                        <span className='text-blue-600 hover:underline cursor-pointer transition-all duration-300' onClick={() => setIsModalOpen(true)}>click</span>
                     </p>
+                    <div className='text-blue-600 text-[14px] hover:underline cursor-pointer transition-all duration-300' onClick={() => setIsModalOpen(true)}>click to view more</div>
 
                     <div className="text-gray-700"><TimerComponent event={event} /></div>
                     <div className="text-sm absolute top-[12px] left-[12px] bg-white text-gray-700 border-1 rounded-full w-fit px-2 py-[2px] font-medium">

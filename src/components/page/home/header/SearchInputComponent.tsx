@@ -4,6 +4,7 @@ import React from 'react'
 import AutoCompleteComponent from '../../../common/AutoCompleteComponent';
 import DatePickerComponent from '../../../common/DatePickerComponent';
 import { useEventContext } from '@/context/EventContext';
+import { CircularProgress } from '@mui/material';
 
 interface Props {
     formData: any;
@@ -28,6 +29,19 @@ const SearchInputComponent = () => {
             type: "",
             category: "Ongoing"
         });
+    }
+
+    const isLoading =
+        !eventNameList?.length ||
+        !locationList?.length ||
+        !eventTypes?.length;
+
+    if (isLoading) {
+        return (
+            <div className="w-full flex justify-center items-center h-[100px]">
+                <CircularProgress />
+            </div>
+        );
     }
     return (
         <div className='flex flex-col lg:flex-row items-center md:h-[60px] gap-4 '>

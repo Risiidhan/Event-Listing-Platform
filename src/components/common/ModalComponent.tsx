@@ -1,7 +1,7 @@
 import { Modal } from '@mui/material'
 import React from 'react'
 import FallBackImgComponent from './FallBackImgComponent';
-import { FaCalendarDays, FaLocationDot } from 'react-icons/fa6';
+import { FaCalendarDays, FaCircleXmark, FaLocationDot } from 'react-icons/fa6';
 import TimerComponent from './TimerComponent';
 
 type Props = {
@@ -48,6 +48,9 @@ const ModalComponent = ({ open, handleClose, event }: Props) => {
                         <div className="text-gray-700"><TimerComponent event={event} /></div>
                         <div className="text-sm absolute top-[12px] left-[12px] bg-white text-gray-700 border-1 rounded-full w-fit px-2 py-[2px] font-medium">
                             {event?.type}
+                        </div>
+                          <div onClick={handleClose} className="text-[22px] cursor-pointer absolute top-[12px] right-[3px]  text-gray-700  w-fit px-2 py-[2px] font-medium">
+                            <FaCircleXmark />
                         </div>
                     </div>
                 </div>
