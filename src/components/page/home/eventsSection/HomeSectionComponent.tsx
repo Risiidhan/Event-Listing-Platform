@@ -1,17 +1,12 @@
 "use client"
 
 import HomeHeaderComponent from '../header/HomeHeaderComponent';
-import CategoryDropDownComponent from './CategoryDropDownComponent';
-import EventListComponent from './EventListComponent';
 import { useEffect, useState } from 'react';
 import { useEventContext } from '@/context/EventContext';
-import NoEventComponent from './NoEventComponent';
-import CategoryMobileComponent from './CategoryMobileComponent';
 import NewEventListingComponent from './NewEventListingComponent';
 import CarouselComponent from './CarouselComponent';
 import EventTypesSlider from './EventTypesSlider';
 
-const categories: string[] = ["All", "Upcoming", "Ongoing", "Expired"];
 
 const HomeSectionComponent = ({ events }: { events: any[] }) => {
     const {
