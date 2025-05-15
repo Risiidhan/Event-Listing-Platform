@@ -40,11 +40,11 @@ const DatePickerComponent = ({ setFormData, formData }: any) => {
                         "& .css-vycme6-MuiPickersInputBase-root-MuiPickersOutlinedInput-root.Mui-focused:not(.Mui-error) .MuiPickersOutlinedInput-notchedOutline": {
                             border: "none",
                         },
-                        "& .MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl": {
-                            padding: "2px 0px",
-                        },
                         "& .Mui-focused:not(.Mui-error) .MuiPickersOutlinedInput-notchedOutline": {
                             border: "none",
+                        },
+                        "& .MuiFormLabel-root MuiInputLabel-root .MuiInputLabel-formControl .Mui-focused": {
+                            padding: "2px 0px",
                         },
                         "& .css-113d811-MuiFormLabel-root-MuiInputLabel-root": {
                             padding: "2px 0px",
