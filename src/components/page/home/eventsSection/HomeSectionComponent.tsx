@@ -62,12 +62,15 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
         setFilteredEvents(filtered);
 
         const now = new Date();
+
         const upComing = filtered?.filter((event: any) => new Date(event.starts_at) > now);
+
         const onGoing = filtered?.filter((event: any) => {
             const start = new Date(event.starts_at);
             const end = new Date(event.expires_at);
             return start <= now && end > now;
         });
+
         const expired = filtered?.filter((event: any) => new Date(event.expires_at) <= now);
 
         setCategoriesList([
@@ -75,6 +78,13 @@ const HomeSectionComponent = ({ events }: { events: any[] }) => {
             { title: "Upcoming", list: upComing },
             { title: "Expired", list: expired },
         ]);
+
+        console.log([
+            { title: "Ongoing", list: onGoing },
+            { title: "Upcoming", list: upComing },
+            { title: "Expired", list: expired },
+        ]);
+
     }, [formData])
 
 

@@ -2,6 +2,7 @@ import React from 'react'
 
 const getTimeDifference = (targetDate: Date) => {
     const now = new Date();
+
     const diffMs = targetDate.getTime() - now.getTime();
 
     if (diffMs <= 0) return null;
@@ -14,6 +15,7 @@ const getTimeDifference = (targetDate: Date) => {
 };
 const TimerComponent = ({ event }: { event: any }) => {
     const now = new Date();
+
     const startDate = new Date(event?.starts_at);
     const endDate = new Date(event?.expires_at);
 
@@ -31,12 +33,12 @@ const TimerComponent = ({ event }: { event: any }) => {
     }
     return (
         <>
-            <div className={`text-gray-700 mt-2 py-1 px-2 w-fit rounded-sm text-sm ${statusLabel === "Expired" ? "bg-red-100" : "bg-green-200"}`}>
+            <div className={`text-gray-700 mt-2 py-1 px-2 w-fit rounded-sm text-sm ${statusLabel === "Expired" ? "bg-red-100" : statusLabel === "Starting in" ? "bg-purple-200" : "bg-green-200"}`}>
                 {statusLabel === "Expired" ? (
                     <span className="text-red-500 text-[14px] font-semibold">Expired</span>
                 ) : timeDiff ? (
                     <>
-                        <span className="font-semibold">{statusLabel}:</span>{" "}
+                        <span className="font-semibold">{statusLabel}:</span>{" "} <br className='xl:hidden' />
                         {`${timeDiff.days} ${timeDiff.days > 1 ? "days" : "day"}  : ${timeDiff.hours} ${timeDiff.hours > 1 ? "hours" : "hour"}  : ${timeDiff.minutes} ${timeDiff.minutes > 1 ? "minutes" : "minute"} `}
                     </>
                 ) : null}

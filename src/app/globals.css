@@ -40,14 +40,14 @@ select:focus-visible {
 }
 
 
+.css-1niro10.Mui-focused {
+  padding: 2px 0px !important;
+}
+
 @media only screen and (max-width: 600px) {
   .content-para {
     font-size: 16px;
     font-weight: 300;
     line-height: 1.5;
   }
-}
-
-.css-1niro10.Mui-focused {
-  padding: 2px 0px !important;
 }
