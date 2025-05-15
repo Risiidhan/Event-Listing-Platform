@@ -34,13 +34,13 @@ const DatePickerComponent = ({ setFormData, formData }: any) => {
             <DemoContainer sx={{ padding: "4px", width: "100%", overflow: "hidden" }} components={['DatePicker']}>
                 <DatePicker className='w-full'
                     sx={{
-                        "& .css-lqwr9g-MuiPickersOutlinedInput-notchedOutline": {
+                        "& .MuiPickersOutlinedInput-notchedOutline": {
                             border: "none"
                         },
                         "& .css-vycme6-MuiPickersInputBase-root-MuiPickersOutlinedInput-root.Mui-focused:not(.Mui-error) .MuiPickersOutlinedInput-notchedOutline": {
                             border: "none",
                         },
-                        "& .css-113d811-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
+                        "& .MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl": {
                             padding: "2px 0px",
                         },
                         "& .css-113d811-MuiFormLabel-root-MuiInputLabel-root": {
