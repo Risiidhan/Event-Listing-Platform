@@ -37,10 +37,14 @@ const DatePickerComponent = ({ setFormData, formData }: any) => {
                         "& .css-lqwr9g-MuiPickersOutlinedInput-notchedOutline": {
                             border: "none"
                         },
-                         "& .css-vycme6-MuiPickersInputBase-root-MuiPickersOutlinedInput-root.Mui-focused:not(.Mui-error) .MuiPickersOutlinedInput-notchedOutline": {
-                        border: "none",
-                    },
-                    }}  
+                        "& .css-vycme6-MuiPickersInputBase-root-MuiPickersOutlinedInput-root.Mui-focused:not(.Mui-error) .MuiPickersOutlinedInput-notchedOutline": {
+                            border: "none",
+                        },
+                        "& .css-113d811-MuiFormLabel-root-MuiInputLabel-root.Mui-focused": {
+                            padding: "2px 0px",
+                        }
+                    }
+                    }
                     value={formData.date || null}
                     onChange={(newValue) =>
                         setFormData({ ...formData, date: newValue })
